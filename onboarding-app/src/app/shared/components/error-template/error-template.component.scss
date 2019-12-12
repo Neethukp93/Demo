@@ -1,0 +1,32 @@
+.ui-messages .ui-messages-summary,
+.ui-messages .ui-messages-detail {
+  display: block;
+  padding-bottom: 10px;
+}
+.ui-button-secondary {
+  background-color: #f4f4f4 !important ;
+}
+.ui-messages-info ul {
+  display: block !important;
+}
+.ui-messages.ui-messages-warn {
+  border-left: 6px solid #d2a631 !important;
+}
+.ui-messages.ui-messages-error {
+  border-left: 6px solid #963c44 !important;
+}
+.ui-messages.ui-messages-info {
+  border-left: 6px solid #4d7ea5 !important;
+}
+.error-messages {
+  display: inline-block !important;
+}
+.error-messages-warn {
+  border-top: 1px dashed#d2a631;
+}
+.error-messages-error {
+  border-top: 1px dashed#963c44;
+}
+.error-messages-info {
+  border-top: 1px dashed#4d7ea5;
+}

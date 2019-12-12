@@ -1,0 +1,29 @@
+
+
+<div style="display:flex; align-items:center; justify-content:center; height:80%">
+    <p-panel header="Login" [style]="{width: '500px'}">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div  style="display:flex; align-items:center; justify-content:center; flex-direction:column">
+        <div class="ui-inputgroup">
+     <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span> <input type="text" formControlName="username" pInputText placeholder="Username" [ngClass]="{ 'error-field': submitted && f.username.errors }" />
+     
+        </div>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      
+      <br>
+      <div class="ui-inputgroup">
+     <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span> 
+     <input type="password" formControlName="password" pPassword placeholder="Password" [ngClass]="{ 'error-field': submitted && f.password.errors }"  />
+      </div>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+      <button pButton type="submit" style="margin-top:8px;" label="Login"  class="ui-button-primary"></button>
+      </div>
+      </form>
+    </p-panel>
+    </div>
+    
+    

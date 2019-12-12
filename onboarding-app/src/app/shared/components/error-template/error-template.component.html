@@ -1,0 +1,84 @@
+<p-dialog
+  [header]="severity"
+  [closable]="hasMessages() && value.fatal != true"
+  [style]="{width: '700px', minWidth: '400px'}"
+  [draggable]="false"
+  [resizable]="false"
+  [responsive]="true"
+  [baseZIndex]="0"
+  [(visible)]="display"
+  [modal]="true"
+  [focusOnShow]="false"
+  [contentStyle]="{ 'text-align': 'center' }"
+>
+  <div
+    *ngIf="hasMessages()"
+    class="ui-messages error-messages ui-widget ui-corner-all"
+    [ngClass]="{
+      'ui-messages-info': value.severity === 'info',
+      'ui-messages-warn': value.severity === 'warn',
+      'ui-messages-error': value.severity === 'error'
+    }"
+    [ngStyle]="style"
+    [class]="styleClass"
+  >
+    <div
+      style="display:inline-flex;width:100%;padding-bottom: 10px;text-align: left;"
+    >
+      <span class="ui-messages-icon pi" [ngClass]="icon"></span>
+      <!-- <ul> -->
+      <span *ngIf="value">
+        <span
+          *ngIf="value.summary"
+          class="ui-messages-summary"
+          [innerHTML]="value.summary"
+        ></span>
+        <span
+          *ngIf="value.detail"
+          class="ui-messages-detail"
+          [innerHTML]="value.detail"
+        ></span>
+      </span>
+      <!-- </ul> -->
+    </div>
+
+    <div
+      style="display: inline-block;width:100%;padding-left:28px;text-align: left;"
+      [ngClass]="{
+        'error-messages-info': value.severity === 'info',
+        'error-messages-warn': value.severity === 'warn',
+        'error-messages-error': value.severity === 'error'
+      }"
+    >
+      <span class="ui-messages-icon pi"></span>
+      <!-- <ul> -->
+      <span *ngIf="value">
+        <span
+          *ngIf="value.otherAction"
+          class="ui-messages-detail"
+          [innerHTML]="value.otherAction"
+        ></span>
+        <span
+          *ngIf="value.action"
+          class="ui-messages-detail"
+          [innerHTML]="value.action"
+        ></span>
+      </span>
+      <!-- </ul> -->
+    </div>
+  </div>
+
+  <p-footer>
+    <div style="text-align: left;">
+      <span pTooltip="help"><i class="pi pi-question"></i></span>
+    </div>
+    <button
+      *ngIf="hasMessages() && value.fatal != true"
+      type="button"
+      pButton
+      (click)="display = false"
+      label="close"
+      class="ui-button-secondary"
+    ></button>
+  </p-footer>
+</p-dialog>
